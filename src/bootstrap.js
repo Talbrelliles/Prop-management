@@ -14,16 +14,7 @@ import Layout from './components/layout';
 import Signup from './components/auth/signup';
 import Signin from './components/auth/signin';
 import history from  './history';
-class Dashboard extends Component{
-  render(){
-    return(
-    <div>
-    hey there
-    
-    </div>
-    )
-  }
-}
+import Dashboard from './components/dashboard.js';
 function main() {
   ReactDOM.render(
     <Provider store={createStoreWithMiddleware(reducers)}>
