@@ -10,6 +10,7 @@ export default function NewsletterBox({date}){
         <div className='newsletter-box'>
         <div className='newsletter-box__day'>{date.getDate()}</div>
         <div className='newsletter-box__month-year'>{months[date.getMonth()]} {date.getFullYear()}</div>
+        <div className='newsletter-box__point'></div>
         </div>
         )
     
