@@ -9,7 +9,7 @@ class Dashboard extends Component {
                 {
                     title: 'Newsletter',
                     active: true,
-                    component: <NewsletterGrid/>
+                    component: <NewsletterGrid history={this.props.history}/>
                 
                     
                     
@@ -18,7 +18,7 @@ class Dashboard extends Component {
                     
                     title: 'Requests',
                     active: false,
-                    component: <h4> </h4>
+                    component: <h4>Hey There - Requests</h4>
                 },
                 
                 

@@ -7,5 +7,14 @@ grid-template-columns: [box-s archive-s] 16rem [box-e archive-e latest-s] 960px 
      justify-content: center;
      
       grid-row-gap: 3.85rem;
-    gird-column-gap: 6.1rem;
+    grid-column-gap: 6.1rem;
+
+  &__button {
+        grid-row: add-s/add-e;
+        grid-column: latest-s/latest-e;
+        justify-self: end;
+        align-self: center;
+
+        margin-right: 1rem;
+    }
 }

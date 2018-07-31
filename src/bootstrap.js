@@ -15,6 +15,7 @@ import Signup from './components/auth/signup';
 import Signin from './components/auth/signin';
 import history from  './history';
 import Dashboard from './components/dashboard.js';
+import NewNewsletter from './components/newsletter/newsletterNew';
 function main() {
   ReactDOM.render(
     <Provider store={createStoreWithMiddleware(reducers)}>
@@ -24,7 +25,7 @@ function main() {
             <Route path='/' exact component={Signin}/>
              <Route path='/signin'  component={Signin}/>
             <Route path='/signup' component={Signup}/>
-            
+            <Route path='/newsletter/new' component={requireAuth(NewNewsletter)}/>
             <Route path='/dashboard' component={requireAuth(Dashboard)}/>
           </Layout>
         </Switch>

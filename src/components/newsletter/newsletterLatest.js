@@ -1,18 +1,11 @@
 import React, { Component } from 'react';
+import Button from '../button';
 
-function Button ({classname, callback, text, icon}){
-    if(icon) {
-        return(
-            <a onClick={callback} className={`${classname} button`}>
-            <i className={icon}></i>
-            </a>
-            )
-    }
-}
 
  class NewsletterLatest extends Component {
+     
    handleEdit = () => {
-       console.log('trying to handle edit');
+       this.props.history.push('/newsletter/edit');
    }
    
     render() {
@@ -22,7 +15,7 @@ function Button ({classname, callback, text, icon}){
             <div className='newsletter-latest'>
                 <h1 className='newsletter-latest__title'>{title}</h1>
                 <img className='newsletter-latest__image' src={imageUrl}/>
-                <Button callback={() => this.handleEdit()} icon='fas fa-pencil-alt'/>
+                <Button callback={() => this.handleEdit()} classname="newsletter-latest__button" icon='fas fa-pencil-alt'/>
                 <div className='newsletter-latest__body'>
                     <p>{body}</p>
                 </div>
