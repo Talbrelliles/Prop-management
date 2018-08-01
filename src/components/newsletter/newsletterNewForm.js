@@ -8,7 +8,17 @@ class NewNewsletterForm extends Component {
   render() {
      
     const { handleSubmit, formTitle, newsletterToEdit } = this.props;
-     const { title, body, imageUrl } = newsletterToEdit;
+var title = null;
+var body = null;
+var imageUrl = null;
+if(newsletterToEdit){
+    title = newsletterToEdit.title;
+    body = newsletterToEdit.body;
+    imageUrl = newsletterToEdit.imageUrl;
+    
+}
+    
+   
      return (
       <form onSubmit={handleSubmit} className="new-newsletter-form">
         
@@ -26,7 +36,7 @@ class NewNewsletterForm extends Component {
            className="new-newsletter-form__body" placeholder="Newsletter Body" name="body" type="text" title="Body" component={FormTextArea} editValue={body}/>
          <Field className="new-newsletter-form__submit" small={true} danger={true} name="submit" type="submit" title="Submit" component={FormButton} value={body}/>  
          <Field className="new-newsletter-form__cancel" small={true} name="cancel" type="button" title="Cancel" component={FormButton} onClick={this.props.onCancel}/>  
-         <Field className="new-newsletter-form__image" small={true} name="image" type="file" title="Image" component={FormImage} src={imageUrl} editValue={body ? body : null}/>  
+         <Field className="new-newsletter-form__image" small={true} name="image" type="file" title="Image" component={FormImage} imageUrl={imageUrl} editValue={body ? body : null}/>  
          </form>
      );
    }

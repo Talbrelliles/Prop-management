@@ -9,6 +9,7 @@ import requireAuth from './components/requireAuth';
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(compose((window.devToolsExtension ? window.devToolsExtension() : f => f)(createStore)));
 
 //import 'bootstrap/dist/css/bootstrap.css';
+import NewsletterDetail from './components/newsletter/newsletterDetail';
 import './style/main.scss';
 import Layout from './components/layout';
 import Signup from './components/auth/signup';
@@ -28,6 +29,7 @@ function main() {
             <Route path='/signup' component={Signup}/>
             <Route path='/newsletter/new' component={requireAuth(NewNewsletter)}/>
             <Route path='/newsletter/edit/:id' component={requireAuth(EditNewsletter)}/>
+             <Route path='/newsletter/detail/:id' component={requireAuth(NewsletterDetail)}/>
             <Route path='/dashboard' component={requireAuth(Dashboard)}/>
           </Layout>
         </Switch>
