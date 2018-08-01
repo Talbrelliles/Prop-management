@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export class FormInput extends Component  {
   
     render() {
-      const { className, title, input, type, placeholder } = this.props;
+      const { className, title, input, type, placeholder, editValue } = this.props;
       return (
         <div className={`${className} form-input`}>
         <label className='form-input__title'>{title}</label>
@@ -12,6 +12,7 @@ export class FormInput extends Component  {
           type={type}
           {...input}
           placeholder={placeholder}
+          value={editValue ? editValue : ''}
           />
         </div>
       )
@@ -63,14 +64,23 @@ export class FormButton extends Component  {
 
 export class FormImage extends Component  {
   
+  handleSelectedImage = (event) => {
+    var image = document.getElementById('newsletter-new-image');
+    image.src = URL.createObjectURL(event.target.files[0]);
+  }
+  
+  
+  
+  
+  
     render() {
       const { className, title, input, type, imageUrl } = this.props;
       return (
         <div className={`${className} form-image`}>
         <label className='form-image__title'>{title}</label>
           <img 
+          id='newsletter-new-image'
           className='form-image__image'
-        
          src={imageUrl}
           />
           <input className='form-image__replace'
@@ -78,14 +88,15 @@ export class FormImage extends Component  {
           //id=''
           value='Replace'
           onClick={
-            () =>
-            document.getElementById('file') ? document.getElementById('file').click() : ''
+            () => document.getElementById('file') ? document.getElementById('file').click() : ''
           }
           />
-          <input {...input} type='type' style={{display: 'none'}} id='file' name='file' accepts='images/*' value={undefined}/>
+          <input {...input} type='file' style={{display: 'none'}} id='file' name='file' accepts='images/*' value={undefined} onChange={this.handleSelectedImage}/>
        
        
         </div>
       )
     }
   }
+  
+ 
