@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import * as actions from '../../actions';
+
 
 import Button from '../button';
-
+import history from '../../history';
 
  class NewsletterLatest extends Component {
      
    handleEdit = () => {
-       this.props.history.push(`/newsletter/edit/${this.props._id}`);
+    history.push(`/newsletter/edit/${this.props._id}`);
    }
    
     render() {
@@ -28,12 +27,12 @@ import Button from '../button';
 }
 
 
-function mapStateToProps(state) {
-    const { newsletters } = state.newsletters;
-    const latestNewsletter= newsletters[0];
-    return{
-        ...latestNewsletter
-    }
-}
+//function mapStateToProps(state) {
+ //   const { newsletters } = state.newsletters;
+ //   const latestNewsletter= newsletters[0];
+  //  return{
+  //      ...latestNewsletter
+  //  }
+//}
 
- export default connect(mapStateToProps)(NewsletterLatest)
+ export default /*connect(mapStateToProps)*/NewsletterLatest;

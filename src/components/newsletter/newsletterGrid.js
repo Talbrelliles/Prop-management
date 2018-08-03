@@ -18,18 +18,24 @@ import NewsletterLatest from './newsletterLatest';
     }
     render() {
      
-     
+     //YOU ARE ON ONE LESSON BACK LOOKING AT GIT HUB
         
         
          return (
             <div className='newsletter-grid'>
                 <Button className='newsletter-grid__button' icon='fas fa-plus' callback={() => this.handleAddNewsletter()}/>
-                <NewsletterBox/>
+                <NewsletterBox {...this.props.latestNewsletter}/>
                 <NewsletterArchive/>
-                <NewsletterLatest history={this.props.history}/>
+                <NewsletterLatest {...this.props.latestNewsletter}/>
             </div>
         )
     }
  }
- 
- export default connect(null, actions)(NewsletterGrid);
+ function mapStateToProps(state) {
+    const { newsletters } = state.newsletters;
+    const latestNewsletter = newsletters[0];
+    return {
+        latestNewsletter
+    }
+}
+ export default connect(mapStateToProps, actions)(NewsletterGrid);
