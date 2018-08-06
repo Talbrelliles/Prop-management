@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import NewNewsletterForm from './newsletterNewForm';
-class NewNewsletter extends Component {
+import NewNewsletterForm from '../newsletter/newsletterNewForm';
+class NewRequest extends Component {
     onSubmit = (fields) => {
         this.props.history.push('/dashboard');
     }
@@ -9,12 +9,12 @@ class NewNewsletter extends Component {
     }
     render(){
         return (
-            <div className='new-newsletter'>
+            <div className='new-request'>
             <NewNewsletterForm onCancel={() => this.onCancel()} onSubmit={(event) => this.onSubmit(event)}
-           formTitle='New Newsletter'
-           fieldOnePlaceholder='Newsletter Title'
-           fieldOneTitle='Newsletter Title'
-           fieldTwoPlaceholder ='Newsletter Description Here'
+           formTitle='New Request'
+           fieldOnePlaceholder='Service Request Title Here'
+           fieldOneTitle='Service Request Title'
+            fieldTwoPlaceholder ='Service Description Here'
            fieldTwoTitle ='Description'
            />
             </div>
@@ -23,4 +23,4 @@ class NewNewsletter extends Component {
     }
     
 }
-export default NewNewsletter;
+export default NewRequest;

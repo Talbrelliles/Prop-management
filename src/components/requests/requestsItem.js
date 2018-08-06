@@ -12,16 +12,19 @@ class RequestsItem extends Component{
    }
     
     toggleDropdown = () => {
+        var element = document.getElementById('requests-item');
         if(this.state.height==0){
+            element.classList.add('bg-F8');
             this.setState({height: 'auto'})
         }else{
             this.setState({height: 0})
+             element.classList.remove('bg-F8');
         }
     }
     
     render(){
         return (
-            <div className='requests-item'>
+            <div id='requests-item' className='requests-item'>
      
             <Icon className='requests-item__icon' icon='fas fa-exclamation-triangle'/>
             <div className='requests-item__title'>
@@ -34,7 +37,7 @@ class RequestsItem extends Component{
             
           
            
-            <div className='requests-item-date'>
+            <div className='requests-item__date'>
             09/15/2018
             </div>
             <Button className='requests-item__move' icon='fas fa-wrench' callback={console.log('tryna move')}/>
