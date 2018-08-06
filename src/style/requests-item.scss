@@ -1,7 +1,9 @@
+
+
 .requests-item {
     display: grid;
-    grid-template-rows: [s title-s] 34px [title-e tenant-s] 34px [tenant-e e description-s] 147px [description-e ];
-    grid-template-columns: [icon-s] 68px [icon-e s title-s] minmax(40px, 1fr) [title-e arrow-s] 68px [arrow-e date-s] 100px [date-e e] 60px;
+    grid-template-rows: [s title-s] 34px [title-e tenant-s] 34px [tenant-e e];
+    grid-template-columns: [icon-s] 100px [icon-e s title-s] minmax(40px, 1fr) [title-e arrow-s] 68px [arrow-e date-s] 100px [date-e e] 60px;
     
     align-items: center;
     &__icon{
@@ -11,17 +13,21 @@
         
     }
     &__title {
+        align-self: end;
         grid-column: title-s/title-e;
         grid-row: title-s/title-e;
+        
+        display: flex;
+        flex-direction: row;
+        align-content: flex-end;
+        
     }
     &__tenant-unit{
+        align-self: start;
         grid-column: title-s/title-e;
         grid-row: tenant-s/tenant-e;
     }
-    &__arrow {
-        grid-column: arrow-s/arrow-e;
-        grid-row: title-s/title-e;
-    }
+  
     &__date {
         grid-column: date-s/date-e;
         grid-row: s/e;
@@ -33,16 +39,64 @@
         display: none;
     }
     &__description{
-        grid-column: s/e;
-        grid-row: description-s/description-e;
+grid-column: s/e;
+    }
+    .item-description {
         display: grid;
         grid-column-gap: 4rem;
         grid-auto-flow: column;
+     }
+ 
+}
+.requests-item {
+    transition: all .3s ease;
+   &:hover {
+       background-color: $color-gray-F8;
+   }
+    &__icon{
+      font-size: 2.7rem;
     }
-    &__description-text{
-        
+    &__title {
+       &__text{
+        font-size: 1.8rem;
+        font-weight: 500;
+        line-height: 2.3rem;
+        margin-right: 2.5rem;
+       }
+       &__arrow{
+           color: $color-gray-4D;
+           font-size: 3rem;
+       }
     }
-    &__description-img{
-        
+    &__tenant-unit{
+        color: $color-red-BA;
+        font-family: 'Monsterrat';
+        font-size: 1.3rem;
+        line-height: 1.6rem;
     }
+    &__arrow {
+       color: $color-gray-4D;
+       font-size: 3rem;
+       
+    }
+    &__date {
+        font-size: 1.4rem;
+        line-height: 1.7rem;
+    }
+    &__move {
+
+    }
+    .item-description{
+        margin-top: 1.4rem;
+        margin-bottom: 2.2rem;
+         &__text{
+        font-size: 1.4rem;
+        line-height: 1.7rem;
+    }
+    &__img{
+        object-fit: cover;
+    }
+    }
+   
+  
 }

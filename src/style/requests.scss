@@ -2,5 +2,8 @@
 display: grid;
 grid-row-gap: 2rem;
 grid-row: s/e;
+
+align-self: start;
+
 grid-column: requests-s/requests-e;
 }
