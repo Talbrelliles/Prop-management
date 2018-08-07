@@ -3,7 +3,9 @@ import {
     signIn
 } from './auth';
 import {
-    changeSelectedRequestType
+    changeSelectedRequestType,
+    createNewRequest,
+    fetchRequests
 }from './requests';
 import {
     fetchNewsletters,
@@ -15,6 +17,7 @@ export {
     signIn,
     fetchNewsletters,
     fetchNewsletterWithId,
-    changeSelectedRequestType
-    
+    changeSelectedRequestType,
+    createNewRequest,
+    fetchRequests
 };
