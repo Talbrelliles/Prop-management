@@ -5,7 +5,8 @@ import {
 import {
     changeSelectedRequestType,
     createNewRequest,
-    fetchRequests
+    fetchRequests,
+    changeStatus
 }from './requests';
 import {
     fetchNewsletters,
@@ -19,5 +20,6 @@ export {
     fetchNewsletterWithId,
     changeSelectedRequestType,
     createNewRequest,
-    fetchRequests
+    fetchRequests,
+    changeStatus
 };
