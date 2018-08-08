@@ -5,9 +5,9 @@ class RequestsBoxes extends Component {
     render() {
         return (
             <div className='requests-boxes'>
-            <RequestsBox title={'pending'} count={this.props.pendingCount}/>
-           <RequestsBox title={'in-progress'} count={this.props.progressCount}/>
-            <RequestsBox title={'completed'} count={this.props.completeCount}/>
+            <RequestsBox icon='fas fa=exclamation-triangle' title={'pending'} count={this.props.pendingCount}/>
+           <RequestsBox icon='fas fa=exclamation-wrench' title={'in-progress'} count={this.props.progressCount}/>
+            <RequestsBox icon='fas fa=exclamation-check-square' title={'complete'} count={this.props.completeCount}/>
             </div>
             )
     }
@@ -24,7 +24,7 @@ function mapStateToProps(state) {
     requests.map(request => {
         if(request.status== 'pending'){
             pendingCount += 1;
-        }else if(request.status == 'progress'){
+        }else if(request.status == 'in-progress'){
             progressCount += 1;
         }else if(request.status == 'complete'){
             completeCount += 1;

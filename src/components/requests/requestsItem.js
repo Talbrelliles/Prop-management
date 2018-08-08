@@ -25,14 +25,29 @@ class RequestsItem extends Component{
              element.classList.remove('bg-F8');
         }
     }
-    
+    handleStatus = () => {
+        const { _id, status } = this.props;
+        this.props.changeStatus({_id, status}, () => {
+          this.props.fetchRequests();  
+        })
+    }
     render(){
-        const { _id, title, body, date, imageUrl, status} = this.props;
+      
+        const { title, body, date, imageUrl, status} = this.props;
+           var iconString = 'fas fa-wrench';
+         var mainIcon = 'fas f-exclamation-triangle';
         const parsedDate= new Date(date);
+        if(status == 'in-progress') {
+            iconString = 'fas fa-check-square';
+            mainIcon = 'fas fa-wrench';
+        } else if(status == 'complete'){
+            iconString = 'fas fa-exclamation-triangle';
+        }
+        
         return (
             <div id='requests-item' className='requests-item'>
      
-            <Icon className='requests-item__icon' icon='fas fa-exclamation-triangle'/>
+            <Icon className='requests-item__icon' icon={mainIcon}/>
             <div className='requests-item__title'>
             <div className='requests-item__title__text'>{title}</div>
               <Icon callback={() => this.toggleDropdown()} className='requests-item__title__arrow' icon='fas fa-sort-down'/>
@@ -50,7 +65,8 @@ class RequestsItem extends Component{
                 /
                 { parsedDate.getFullYear()-2000 }
             </div>
-            <Button className='requests-item__move' icon='fas fa-wrench' callback={() => this.props.changeStatus({_id, status})}/>
+           
+            <Button className='requests-item__move' icon={iconString} callback={() => this.handleStatus()}/>
             
            
              <div className='requests-item__description'>

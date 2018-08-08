@@ -13,7 +13,8 @@
     grid-template-rows: [s] 8.1rem [m] 2.3rem [e];
     grid-template-columns: [s] 1fr [e];
     
-    &__count {
+    &__count, &__icon{
+        transform: all .3s ease;
         align-self: end;
         font-size: 7rem;
         line-height: 8.1rem;
@@ -23,6 +24,32 @@
         grid-column: s/e;
     }
     
+    
+    &__icon {
+        opacity: 0;
+        font-size: 5rem;
+        transform: translateY(-100px);
+    }
+    
+    &:hover{
+        border-color: $color-red-BA;
+        background-color: white;
+        .requests-box__point{
+            display: none;
+        }
+        .requests-box__icon{
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .requests-box__count{
+            transform: translateY(100px);
+            opacity: 0;
+        }
+        .requests-box__title{
+            color: $color-red-BA;
+        }
+    }
+    
     &__title{
         align-self: start;
         font-size: 2rem;
@@ -30,6 +57,7 @@
         grid-row: m/e;
         grid-column: s/e;
     }
+    
     
     &__point {
         height: 4rem;
